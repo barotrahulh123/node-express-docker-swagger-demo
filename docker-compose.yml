@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  app:    
+    build:
+      context: .
+      dockerfile: Dockerfile        
+    ports:
+      - 3000:3000     
+    environment:
+      DB_DIALECT: postgres
+      DB_HOST: database
+      DB_USER: postgres
+      DB_PASS: root
+      DB_NAME: population-analyst-api-db
+    depends_on:
+      - postgres 
+    volumes:
+      - ./:/src
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: population-analyst-api-db
+    ports:
+      - 5432:5432
