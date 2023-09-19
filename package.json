@@ -5,7 +5,8 @@
   "author": "rahul <barotrahulh123@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "migrate": "sequelize db:migrate"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
